@@ -3,204 +3,236 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ms. Naledi Magane — Polished Profile (Fixed)</title>
-  <meta name="description" content="Polished feminine profile with dark-pink background and frosted glass UI." />
+  <title>Ms. Naledi Magane — Polished Profile</title>
+  <meta name="description" content="Feminine polished profile with frosted-glass UI." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg-dark: #b30059;
-      --bg-accent:#ffb3d6;
-      --glass: rgba(255,255,255,0.12);
-      --border: rgba(255,255,255,0.22);
+      --bg-1:#b30059; /* deep rose */
+      --bg-2:#ff9fcf; /* soft pink */
+      --glass: rgba(255,255,255,0.10);
+      --glass-2: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.18);
+      --muted: rgba(255,235,245,0.9);
       --accent:#ff66b2;
-      --muted:#f5d8e6;
-      --radius:16px;
-      --blur:10px;
+      --radius:18px;
+      --blur:12px;
       --max-w:1100px;
     }
+
+    /* reset */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
       font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg,var(--bg-dark),#7a0a3f 60%);
-      color:#fff;-webkit-font-smoothing:antialiased;padding:28px;display:flex;justify-content:center;
+      background: linear-gradient(180deg,var(--bg-1), #7a0a3f 56%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      padding:28px;display:flex;justify-content:center;align-items:flex-start;
     }
-    .wrap{width:100%;max-width:var(--max-w);}
 
-    header{position:sticky;top:18px;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:12px;margin-bottom:18px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));backdrop-filter:blur(6px);border:1px solid var(--border)}
-    .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
-    .mark{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--bg-accent));font-family:'Playfair Display',serif;font-weight:700;color:#fff}
+    .wrap{width:100%;max-width:var(--max-w)}
+
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:14px;margin-bottom:18px;background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));backdrop-filter:blur(6px);border:1px solid var(--border)}
+    .brand{display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit}
+    .mark{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--bg-2));font-family:'Playfair Display',serif;font-weight:700;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,0.18)}
     nav{display:flex;gap:8px}
-    a.nav{color:var(--muted);padding:8px 10px;border-radius:10px;text-decoration:none;font-weight:600;transition:background .18s,transform .18s}
-    a.nav:hover{background:rgba(255,255,255,0.06);transform:translateY(-3px);color:#fff}
+    .nav{color:var(--muted);padding:8px 10px;border-radius:10px;text-decoration:none;font-weight:600;transition:background .18s,transform .18s}
+    .nav:hover{background:rgba(255,255,255,0.06);transform:translateY(-3px);color:#fff}
 
-    .hero{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:center;padding:22px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));backdrop-filter:blur(var(--blur));border:1px solid var(--border)}
+    /* hero */
+    .hero{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:center;padding:22px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));backdrop-filter:blur(var(--blur));border:1px solid var(--border)}
 
-    .avatar-panel{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-    .avatar-frame{width:300px;height:300px;border-radius:20px;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.12);display:grid;place-items:center;box-shadow:0 12px 40px rgba(0,0,0,0.15);}
-    .avatar-frame img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px;border:6px solid rgba(255,255,255,0.6);background:linear-gradient(180deg,#fff,#fff6f9)}
+    .avatar-col{display:flex;flex-direction:column;align-items:center;gap:14px}
 
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.4rem;color:#fff;margin-bottom:6px}
-    .subtitle{color:rgba(255,235,245,0.9);font-style:italic;margin-bottom:12px}
+    .image-frame{
+      width:300px;height:300px;border-radius:20px;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.12);display:grid;place-items:center;box-shadow:0 14px 40px rgba(0,0,0,0.22);overflow:hidden;position:relative
+    }
+    .image-frame img{width:100%;height:100%;object-fit:cover;border-radius:12px;border:6px solid rgba(255,255,255,0.6);background:linear-gradient(180deg,#fff,#fff6f9)}
+    .image-frame .decor{position:absolute;right:8px;bottom:8px;opacity:0.12}
+
+    h1{font-family:'Playfair Display',serif;font-size:2.4rem;color:#fff;margin-bottom:6px}
+    .subtitle{color:var(--muted);font-style:italic;margin-bottom:12px}
+
     .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-    .pill{background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-weight:700;color:#ffe8f2}
+    .pill{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);font-weight:700;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+    .pill .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 4px 12px rgba(255,102,178,0.12)}
 
     .actions{display:flex;gap:12px;margin-top:6px}
-    .btn{padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff9ccf);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 28px rgba(0,0,0,0.18)}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#ffe8f2}
+    .btn{padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff9ccf);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 28px rgba(0,0,0,0.18);display:inline-flex;align-items:center;gap:10px}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:var(--muted)}
+
+    .quick{margin-top:14px;color:var(--muted);font-size:0.95rem}
 
     main{margin-top:18px;display:grid;gap:18px}
-    .card{display:grid;grid-template-columns:1fr 340px;gap:18px;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.08)}
+
+    .card{display:grid;grid-template-columns:1fr 340px;gap:18px;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.08);align-items:start}
     .card.invert{grid-template-columns:340px 1fr}
     .card h2{font-family:'Playfair Display',serif;color:#fff;margin-bottom:8px}
-    .card p{color:rgba(255,235,245,0.95);text-align:justify}
+    .card p{color:var(--muted);text-align:justify}
 
-    .frame{height:260px;border-radius:14px;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.08)}
-    .frame img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;border:6px solid rgba(255,255,255,0.5)}
+    .frame{height:260px;border-radius:14px;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.08);overflow:hidden}
+    .frame img{width:100%;height:100%;object-fit:cover;border-radius:10px}
 
     .mini{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .mini .item{background:rgba(255,255,255,0.02);border-radius:12px;padding:10px;border:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;align-items:center}
-    .mini img{width:100%;height:140px;object-fit:contain;border-radius:8px}
+    .mini .item{background:rgba(255,255,255,0.02);border-radius:12px;padding:10px;border:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;align-items:center;gap:8px}
+    .mini img{width:100%;height:140px;object-fit:cover;border-radius:8px}
 
-    footer{margin-top:18px;padding:18px;text-align:center;color:rgba(255,235,245,0.9)}
+    footer{margin-top:18px;padding:18px;text-align:center;color:var(--muted)}
 
-    @media (max-width:980px){.hero{grid-template-columns:240px 1fr}.card,.card.invert{grid-template-columns:1fr}.mini{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:520px){body{padding:12px}.hero{grid-template-columns:1fr;text-align:center}.avatar-frame{width:220px;height:220px}.frame{height:200px}.mini{grid-template-columns:1fr}}
+    /* small screens */
+    @media (max-width:980px){.hero{grid-template-columns:240px 1fr}.card,.card.invert{grid-template-columns:1fr}.mini{grid-template-columns:repeat(2,1fr)}.image-frame{width:240px;height:240px}}
+    @media (max-width:520px){body{padding:12px}.hero{grid-template-columns:1fr;text-align:center}.image-frame{width:220px;height:220px}.frame{height:200px}.mini{grid-template-columns:1fr}}
 
-    /* reveal (hidden by default) + noscript fallback below */
+    /* reveal */
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s}
     .reveal.revealed{opacity:1;transform:none}
-  </style>
 
-  <!-- show content if JS is disabled -->
-  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+    /* subtle focus/keyboard */
+    a:focus{outline:3px solid rgba(255,255,255,0.08);outline-offset:3px;border-radius:8px}
+
+  </style>
 </head>
 <body>
   <div class="wrap">
 
     <header>
       <a class="brand" href="#">
-        <div class="mark">NM</div>
+        <div class="mark" aria-hidden="true">NM</div>
         <div>
-          <div style="font-weight:700">Ms. M. Naledi</div>
-          <div style="font-size:0.85rem;color:var(--muted)">Analytical Chemistry • Tshwane University of Technology</div>
+          <div style="font-weight:700">Ms. Naledi Magane</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Analytical Chemistry · Tshwane University of Technology</div>
         </div>
       </a>
 
-      <nav aria-label="Primary nav">
-        <a class="nav" href="#roots">Roots 🌱</a>
-        <a class="nav" href="#academic">Academic 🎓</a>
-        <a class="nav" href="#passions">Passions ✨</a>
-        <a class="nav" href="#moments">Moments 📸</a>
+      <nav aria-label="Primary navigation">
+        <a class="nav" href="#roots">Roots</a>
+        <a class="nav" href="#academic">Academic</a>
+        <a class="nav" href="#passions">Passions</a>
+        <a class="nav" href="#moments">Moments</a>
+        <a class="nav" href="#contact">Contact</a>
       </nav>
     </header>
 
-    <!-- HERO (two-column) -->
+    <!-- HERO -->
     <section class="hero reveal" aria-labelledby="profile">
-      <div class="avatar-panel">
-        <div class="avatar-frame">
-          <!-- replace with your image file -->
-          <img src="hazel-profile.jpg" alt="Naledi profile">
+      <div class="avatar-col">
+        <figure class="image-frame" aria-hidden="false">
+          <img src="hazel-profile.jpg" alt="Naledi Magane portrait" loading="lazy">
+          <!-- decorative floral svg -->
+          <svg class="decor" width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.1 0 2 .9 2 2 0 .9-.6 1.6-1.4 1.9C12.8 8 15 9.6 15 12c0 2.8-2.2 5-5 5s-5-2.2-5-5c0-2.4 2.2-4 2.4-6.1C6.6 5.6 6 4.9 6 4c0-1.1.9-2 2-2h4z" fill="#fff" opacity="0.18"/></svg>
+          <figcaption style="position:absolute;left:12px;bottom:12px;color:var(--muted);font-size:0.9rem">Groblersdal · Tshwane</figcaption>
+        </figure>
+
+        <div style="display:flex;gap:10px;width:100%;justify-content:center;flex-wrap:wrap">
+          <a class="btn ghost" href="#academic">View CV</a>
+          <a class="btn" href="Naledi_Magane_Profile.pdf" download>Download PDF</a>
         </div>
       </div>
 
       <div>
-        <h1 id="profile">Ms. M. Naledi ✨</h1>
-        <div class="subtitle">"Rooted in faith, rising in purpose."</div>
+        <h1 id="profile">Ms. Naledi Magane</h1>
+        <div class="subtitle">Rooted in faith. Driven by curiosity.</div>
 
         <div class="badges">
-          <div class="pill">🎓 Final Year</div>
-          <div class="pill">🧪 Analytical Chemistry</div>
-          <div class="pill">📍 Groblersdal & Pretoria</div>
+          <div class="pill"><span class="dot"></span> Final-year student</div>
+          <div class="pill"><span class="dot"></span> Analytical chemistry</div>
+          <div class="pill"><span class="dot"></span> Research & method development</div>
         </div>
 
-        <div class="actions">
-          <a class="btn" href="Naledi_Magane_Profile.pdf" download>Download Profile 📄</a>
-          <a class="btn ghost" href="#contact">Contact ✉️</a>
+        <div class="quick">
+          Naledi is a meticulous analytical chemist-in-training. She focuses on quantitative method development, data integrity and clear scientific communication. Available for student collaborations and junior lab projects.
         </div>
 
-        <div style="margin-top:14px;color:rgba(255,235,245,0.9)">
-          <strong>Quick facts:</strong> Loves journaling ✍️ · Orchids & peonies 🌸 · Playlist curator 🎶
+        <div class="actions" style="margin-top:16px">
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn ghost" href="#moments">Gallery</a>
         </div>
+
+        <div style="margin-top:14px;color:var(--muted)"><strong>Interests:</strong> Journaling · Orchids · Curating playlists · Photography</div>
       </div>
     </section>
 
     <main>
       <section id="roots" class="card reveal">
         <div>
-          <h2>Early Life & Roots 🌿</h2>
-          <p>Born and raised in Groblersdal, Limpopo — Naledi grew up around wide open spaces, learning the values of community, patience and curiosity. Nature shaped her calm and reflective personality.</p>
+          <h2>Early Life & Roots</h2>
+          <p>Born and raised in Groblersdal, Limpopo. Naledi grew up with a deep appreciation for the outdoors. This shaped her patient and observant approach to science and relationships.</p>
+          <p><strong>Languages:</strong> English, Sepedi</p>
         </div>
         <div class="frame">
-          <img src="hazel1.jpg" alt="Naledi in Groblersdal">
+          <img src="hazel1.jpg" alt="Naledi in Groblersdal" loading="lazy">
         </div>
       </section>
 
       <section id="academic" class="card invert reveal">
         <div class="frame">
-          <img src="hazel2.jpg" alt="Studying and focus">
+          <img src="hazel2.jpg" alt="Studying and focus" loading="lazy">
         </div>
         <div>
-          <h2>Academic Journey 🎓</h2>
-          <p>As of July 2025, Naledi is finishing her degree in Analytical Chemistry at Tshwane University of Technology. Her focus areas include quantitative analysis, method development and communicating findings clearly.</p>
-          <p><strong>Availability:</strong> Consultations & collaborative projects (by appointment)</p>
+          <h2>Academic Journey</h2>
+          <p>As of July 2025 Naledi is completing her B.Sc. in Analytical Chemistry at Tshwane University of Technology. Strong in wet chemistry, titrimetry, spectroscopy and basic chromatographic techniques.</p>
+          <ul style="color:var(--muted);margin-top:8px">
+            <li><strong>Focus:</strong> Quantitative analysis & method validation</li>
+            <li><strong>Tools:</strong> UV-Vis, AAS, HPLC basics</li>
+            <li><strong>Open for:</strong> consulting and collaborative student projects by appointment</li>
+          </ul>
         </div>
       </section>
 
       <section id="passions" class="card reveal">
         <div>
-          <h2>Personality & Passions ✨</h2>
-          <p>Naledi finds energy in quiet rituals — journaling, curated playlists, and long walks. Her faith and reflective practices shape how she learns and supports others.</p>
-          <blockquote style="color:var(--muted);border-left-color:rgba(255,255,255,0.12);">"The winds of change do not shake the rooted tree."</blockquote>
+          <h2>Personality & Passions</h2>
+          <p>Naledi keeps a daily journal. She loves quiet routines and plants. She also curates playlists for study sessions and enjoys simple portrait photography.</p>
+          <blockquote style="color:var(--muted);border-left:3px solid rgba(255,255,255,0.06);padding-left:12px;margin-top:12px">"The winds of change do not shake the rooted tree."</blockquote>
         </div>
         <div class="frame">
-          <img src="Naledi hazel.jpg" alt="Reflective portrait">
+          <img src="Naledi-hazel.jpg" alt="Reflective portrait" loading="lazy">
         </div>
       </section>
 
       <section id="moments" class="reveal">
-        <h2 style="font-family:'Playfair Display',serif;color:#fff;margin-bottom:10px">Moments & Moods 📸</h2>
+        <h2 style="font-family:'Playfair Display',serif;color:#fff;margin-bottom:10px">Moments & Gallery</h2>
         <div class="mini">
-          <div class="item"><img src="hazel1.jpg" alt="serene"><div style="margin-top:8px;color:var(--muted)">Serene moments ✨</div></div>
-          <div class="item"><img src="hazel2.jpg" alt="study"><div style="margin-top:8px;color:var(--muted)">Focused study 📚</div></div>
-          <div class="item"><img src="Naledi.jpg" alt="calm"><div style="margin-top:8px;color:var(--muted)">Graceful calm 🌿</div></div>
-          <div class="item"><img src="Naledi hazel.jpg" alt="flowers"><div style="margin-top:8px;color:var(--muted)">Orchids & peonies 🌸</div></div>
+          <figure class="item"><img src="hazel1.jpg" alt="serene" loading="lazy"><figcaption style="color:var(--muted);font-size:0.95rem">Serene moments</figcaption></figure>
+          <figure class="item"><img src="hazel2.jpg" alt="study" loading="lazy"><figcaption style="color:var(--muted);font-size:0.95rem">Focused study</figcaption></figure>
+          <figure class="item"><img src="Naledi.jpg" alt="calm" loading="lazy"><figcaption style="color:var(--muted);font-size:0.95rem">Graceful calm</figcaption></figure>
+          <figure class="item"><img src="Naledi-hazel.jpg" alt="flowers" loading="lazy"><figcaption style="color:var(--muted);font-size:0.95rem">Orchids & peonies</figcaption></figure>
         </div>
       </section>
     </main>
 
     <footer id="contact" class="reveal">
       <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:12px">
-        <div style="font-weight:700;color:#fff">Get in touch ✉️</div>
-        <div style="color:rgba(255,235,245,0.9)">Email: <em>replace.me@example.com</em> · Instagram: <em>@bratzara_nanieyella</em></div>
-        <div style="margin-top:8px;color:rgba(255,235,245,0.9)">Inspired by Victor — final polished dark-pink frosted design 🌷</div>
+        <div style="font-weight:700;color:#fff">Get in touch</div>
+        <div style="color:var(--muted)">Email: <em>replace.me@example.com</em> · Instagram: <em>@bratzara_nanieyella</em></div>
+        <div style="margin-top:8px;color:var(--muted)">Replace placeholders and image files with your originals. PDF and contact links are included.</div>
       </div>
     </footer>
 
   </div>
 
   <script>
-    // Robust reveal-on-scroll with fallback.
+    // simple reveal on scroll
     document.addEventListener('DOMContentLoaded', function () {
       var reveals = document.querySelectorAll('.reveal');
-      var options = { threshold: 0.12, rootMargin: '0px 0px -80px 0px' };
-
+      var options = {threshold:0.12, rootMargin: '0px 0px -80px 0px'};
       if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries, observer) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-              observer.unobserve(entry.target);
-            }
-          });
+        var io = new IntersectionObserver(function(entries, observer){
+          entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('revealed'); observer.unobserve(e.target); } });
         }, options);
-        reveals.forEach(function (el) { io.observe(el); });
+        reveals.forEach(function(r){ io.observe(r); });
       } else {
-        // If IntersectionObserver isn't supported, show content anyway
-        reveals.forEach(function (el) { el.classList.add('revealed'); });
+        reveals.forEach(function(r){ r.classList.add('revealed'); });
       }
+
+      // remove accidental empty gaps by ensuring images loaded keep aspect ratio
+      var imgs = document.querySelectorAll('img');
+      imgs.forEach(function(img){ img.addEventListener('error', function(){ img.style.opacity=0.6 }); });
     });
   </script>
 </body>
