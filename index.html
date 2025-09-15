@@ -3,283 +3,299 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ms. Naledi Magane — Polished Profile (Final)</title>
-  <meta name="description" content="Final polished feminine profile with responsive frosted-glass UI." />
+  <title>Ms. Naledi Magane — Mobile-first Profile (Final)</title>
+  <meta name="description" content="Mobile-first polished profile with frosted-glass UI. Optimised for portrait phones." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Lighter rose palette (user requested slightly lighter pink) */
-      --bg-1:#cc3e72;   /* lighter deep-rose */
-      --bg-2:#ffd0e6;   /* soft blush */
-      --glass: rgba(255,255,255,0.10);
+      --bg-start:#f7dfe8; /* very light pink */
+      --bg-end:#e4b3cf;   /* soft rose */
+      --glass: rgba(255,255,255,0.14);
       --glass-2: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.18);
-      --muted: rgba(255,235,245,0.92);
-      --accent:#ff6ea8;
-      --radius:18px;
-      --blur:12px;
+      --border: rgba(255,255,255,0.22);
+      --accent:#d95b8d;   /* accent */
+      --muted: rgba(51,24,34,0.65);
+      --radius:16px;
       --max-w:1100px;
     }
 
-    /* reset */
+    /* base / mobile-first */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
       font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg,var(--bg-1), #8e2450 56%);
-      color:#fff;
+      background: linear-gradient(180deg,var(--bg-start), var(--bg-end));
+      color:#2b1220;
       -webkit-font-smoothing:antialiased;
-      padding:20px;display:flex;justify-content:center;align-items:flex-start;
+      padding:12px;display:flex;justify-content:center;
     }
 
     .wrap{width:100%;max-width:var(--max-w)}
 
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:14px;margin-bottom:16px;background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));backdrop-filter:blur(6px);border:1px solid var(--border)}
-    .brand{display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit}
-    .mark{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--bg-2));font-family:'Playfair Display',serif;font-weight:700;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,0.18)}
-    nav{display:flex;gap:8px;flex-wrap:wrap}
-    .nav{color:var(--muted);padding:8px 10px;border-radius:10px;text-decoration:none;font-weight:600;transition:background .18s,transform .18s}
-    .nav:hover{background:rgba(255,255,255,0.06);transform:translateY(-3px);color:#fff}
-
-    /* HERO */
-    .hero{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:center;padding:22px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));backdrop-filter:blur(var(--blur));border:1px solid var(--border)}
-
-    .avatar-col{display:flex;flex-direction:column;align-items:center;gap:12px}
-
-    /* responsive image frames use aspect-ratio rather than fixed heights to avoid cropping on small screens */
-    .image-frame{
-      width:300px;max-width:100%;aspect-ratio:1/1;border-radius:20px;padding:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.12);display:grid;place-items:center;box-shadow:0 14px 40px rgba(0,0,0,0.22);overflow:hidden;position:relative
-    }
-    .image-frame img{width:100%;height:100%;object-fit:cover;border-radius:12px;border:6px solid rgba(255,255,255,0.6);background:linear-gradient(180deg,#fff,#fff6f9);display:block}
-    .image-frame .decor{position:absolute;right:8px;bottom:8px;opacity:0.12}
-
-    h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;margin-bottom:6px}
-    .subtitle{color:var(--muted);font-style:italic;margin-bottom:12px}
-
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-    .pill{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);font-weight:700;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
-    .pill .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 4px 12px rgba(255,102,178,0.12)}
-
-    .actions{display:flex;gap:12px;margin-top:6px}
-    .btn{padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff9ccf);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 28px rgba(0,0,0,0.18);display:inline-flex;align-items:center;gap:10px}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:var(--muted)}
-
-    .quick{margin-top:14px;color:var(--muted);font-size:0.95rem}
-
-    main{margin-top:18px;display:grid;gap:18px}
-
-    .card{display:grid;grid-template-columns:1fr 340px;gap:18px;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.08);align-items:start}
-    .card.invert{grid-template-columns:340px 1fr}
-    .card h2{font-family:'Playfair Display',serif;color:#fff;margin-bottom:8px}
-    .card p{color:var(--muted);text-align:justify}
-
-    /* Use aspect-ratio so we don't force fixed heights that crop images on small screens */
-    .frame{width:100%;aspect-ratio:16/10;border-radius:14px;padding:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.08);overflow:hidden}
-    .frame img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
-
-    .mini{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:start}
-    .mini .item{background:rgba(255,255,255,0.02);border-radius:12px;padding:10px;border:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;align-items:center;gap:8px;min-height:0}
-    .mini img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block}
-
-    footer{margin-top:18px;padding:18px;text-align:center;color:var(--muted)}
-
-    /* responsive adjustments */
-    @media (max-width:980px){
-      .hero{grid-template-columns:240px 1fr}
-      .card,.card.invert{grid-template-columns:1fr}
-      .mini{grid-template-columns:repeat(2,1fr)}
-      .image-frame{width:240px}
+    /* --------- Sticky glass header (mobile-first) --------- */
+    .site-header{
+      position:sticky;top:8px;z-index:1200;margin-bottom:10px;padding:10px;border-radius:12px;background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px
     }
 
-    @media (max-width:520px){
-      body{padding:12px}
-      .hero{grid-template-columns:1fr;text-align:center}
-      .image-frame{width:220px;aspect-ratio:1/1}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+    .logo-mark{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#ffd6ea);font-family:'Playfair Display',serif;font-weight:700;color:#fff;box-shadow:0 8px 18px rgba(0,0,0,0.12)}
+    .brand h1{font-size:1rem;margin:0;line-height:1}
+    .brand p{font-size:0.75rem;margin:0;color:var(--muted)}
 
-      /* prevent cropping on tiny screens: switch to contain and allow the image height to adjust */
-      .frame img, .mini img, .image-frame img{object-fit:contain;height:auto}
+    /* compact nav (visible on tablet/desktop) */
+    .nav-inline{display:none;gap:8px}
+    .nav-inline a{padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
 
-      .frame{aspect-ratio:4/3}
-      .mini{grid-template-columns:1fr}
-      h1{font-size:1.8rem}
+    /* hamburger */
+    .btn-hamburger{background:transparent;border:0;padding:8px;display:grid;place-items:center;border-radius:10px}
+    .btn-hamburger svg{width:28px;height:28px}
+
+    /* overlay menu (mobile) */
+    .menu-overlay{position:fixed;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:90px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));backdrop-filter:blur(14px);transform:translateY(-110%);transition:transform .36s cubic-bezier(.2,.9,.2,1);z-index:1199}
+    .menu-overlay.open{transform:translateY(0)}
+    .menu-overlay nav{display:flex;flex-direction:column;gap:12px;width:100%;max-width:420px;padding:12px}
+    .menu-overlay a{display:block;padding:16px;border-radius:12px;text-decoration:none;background:rgba(255,255,255,0.02);color:#2b1220;font-weight:700;text-align:center}
+
+    /* --------- Hero & content (mobile-first single column) --------- */
+    main{display:block;gap:14px}
+    .hero{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);padding:14px;border-radius:14px}
+
+    .image-frame{width:100%;max-width:420px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:block}
+    .image-frame img{width:100%;height:auto;display:block;object-fit:contain}
+
+    h2{font-family:'Playfair Display',serif;font-size:1.15rem;margin:8px 0}
+    p{color:var(--muted);font-size:0.95rem}
+
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+    .chip{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);font-weight:700;color:var(--muted)}
+
+    .actions{display:flex;gap:10px;justify-content:center;margin-top:8px}
+    .btn{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff9ccf);color:#fff;text-decoration:none;font-weight:700}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* cards used as image fallback content */
+    .info-card{padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .info-card h3{margin-bottom:6px}
+
+    /* gallery grid for larger screens */
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
+    .gallery .thumb img{width:100%;height:auto;display:block;object-fit:contain;border-radius:10px}
+
+    footer{margin-top:14px;text-align:center;color:var(--muted);font-size:0.95rem}
+
+    /* --------- tablet / desktop (reveal inline nav & two-column layout) --------- */
+    @media (min-width:720px){
+      .nav-inline{display:flex}
+      .btn-hamburger{display:none}
+      .menu-overlay{display:none}
+
+      main{display:grid;grid-template-columns:340px 1fr;gap:14px}
+      .hero{padding:18px}
+      .image-frame{aspect-ratio:1/1;height:320px}
+      .gallery{grid-template-columns:repeat(4,1fr)}
+      .image-frame img, .gallery img{object-fit:cover}
     }
 
-    /* reveal */
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s}
-    .reveal.revealed{opacity:1;transform:none}
+    /* ensure portrait phones show images fully without cropping */
+    @media (max-width:420px){
+      body{padding:10px}
+      .site-header{padding:10px}
+      .brand h1{font-size:0.95rem}
+      .menu-overlay nav a{padding:14px;font-size:1rem}
+      .image-frame{max-width:360px}
+      .gallery{grid-template-columns:1fr}
+    }
 
-    /* accessible focus */
-    a:focus{outline:3px solid rgba(255,255,255,0.08);outline-offset:3px;border-radius:8px}
-
-    /* placeholder state when image fails to load */
-    figure.missing{display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:var(--muted);padding:14px;border-radius:12px}
-    figure.missing span{padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);font-weight:600}
   </style>
 </head>
 <body>
   <div class="wrap">
 
-    <header>
+    <header class="site-header" role="banner">
       <a class="brand" href="#">
-        <div class="mark" aria-hidden="true">NM</div>
+        <div class="logo-mark" aria-hidden="true">NM</div>
         <div>
-          <div style="font-weight:700">Ms. Naledi Magane</div>
-          <div style="font-size:0.85rem;color:var(--muted)">Analytical Chemistry · Tshwane University of Technology</div>
+          <h1 style="font-weight:700">Naledi Magane</h1>
+          <p style="margin-top:4px">Analytical Chemistry · Tshwane</p>
         </div>
       </a>
 
-      <nav aria-label="Primary navigation">
-        <a class="nav" href="#roots">Roots</a>
-        <a class="nav" href="#academic">Academic</a>
-        <a class="nav" href="#passions">Passions</a>
-        <a class="nav" href="#moments">Moments</a>
-        <a class="nav" href="#contact">Contact</a>
-      </nav>
+      <div style="display:flex;align-items:center;gap:8px">
+        <nav class="nav-inline" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#academic">Academic</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="btn-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="#2b1220" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero reveal" aria-labelledby="profile">
-      <div class="avatar-col">
-        <figure class="image-frame" aria-hidden="false">
-          <img src="hazel-profile.jpg" alt="Naledi Magane portrait" loading="lazy">
-          <svg class="decor" width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.1 0 2 .9 2 2 0 .9-.6 1.6-1.4 1.9C12.8 8 15 9.6 15 12c0 2.8-2.2 5-5 5s-5-2.2-5-5c0-2.4 2.2-4 2.4-6.1C6.6 5.6 6 4.9 6 4c0-1.1.9-2 2-2h4z" fill="#fff" opacity="0.12"/></svg>
-          <figcaption style="position:absolute;left:12px;bottom:12px;color:var(--muted);font-size:0.9rem">Groblersdal · Tshwane</figcaption>
-        </figure>
-
-        <div style="display:flex;gap:10px;width:100%;justify-content:center;flex-wrap:wrap">
-          <a class="btn ghost" href="#academic">View CV</a>
-          <a class="btn" href="Naledi_Magane_Profile.pdf" download>Download PDF</a>
-        </div>
-      </div>
-
-      <div>
-        <h1 id="profile">Ms. Naledi Magane</h1>
-        <div class="subtitle">Rooted in faith. Driven by curiosity.</div>
-
-        <div class="badges">
-          <div class="pill"><span class="dot"></span> Final-year student</div>
-          <div class="pill"><span class="dot"></span> Analytical chemistry</div>
-          <div class="pill"><span class="dot"></span> Research & method development</div>
-        </div>
-
-        <div class="quick">
-          Naledi focuses on quantitative method development, data integrity and clear scientific communication. Available for collaborations and junior lab projects.
-        </div>
-
-        <div class="actions" style="margin-top:16px">
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn ghost" href="#moments">Gallery</a>
-        </div>
-
-        <div style="margin-top:14px;color:var(--muted)"><strong>Interests:</strong> Journaling · Orchids · Curating playlists · Photography</div>
-      </div>
-    </section>
+    <!-- overlay menu for mobile -->
+    <div id="menuOverlay" class="menu-overlay" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        <a href="#about">About</a>
+        <a href="#academic">Academic</a>
+        <a href="#passions">Interests</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
     <main>
-      <section id="roots" class="card reveal">
-        <div>
-          <h2>Early Life & Roots</h2>
-          <p>Born and raised in Groblersdal, Limpopo. Naledi grew up with a deep appreciation for the outdoors. This shaped her patient and observant approach to science and relationships.</p>
-          <p><strong>Languages:</strong> English, Sepedi</p>
-        </div>
-        <div class="frame">
-          <img src="hazel1.jpg" alt="Naledi in Groblersdal" loading="lazy">
+      <section class="hero" id="about">
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center">
+          <figure class="image-frame" id="primaryPhoto">
+            <img src="hazel-profile.jpg" alt="Naledi Magane portrait" loading="lazy">
+            <!-- fallback info shown if image fails. JS will reveal this when needed -->
+            <figcaption class="fallback" style="display:none;padding:10px">
+              <div class="info-card">
+                <h3>About Naledi</h3>
+                <p>Born in Groblersdal. Final-year Analytical Chemistry student at Tshwane University of Technology. Methodical and patient. Loves plants and quiet routines.</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <div>
+            <h2>Ms. Naledi Magane</h2>
+            <p class="muted">Rooted in faith. Driven by curiosity.</p>
+            <div class="badges">
+              <span class="chip">Final-year</span>
+              <span class="chip">Analytical Chemistry</span>
+              <span class="chip">Research & Methods</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn" href="Naledi_Magane_Profile.pdf" download>Download CV</a>
+              <a class="btn ghost" href="#contact">Contact</a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="academic" class="card invert reveal">
-        <div class="frame">
-          <img src="hazel2.jpg" alt="Studying and focus" loading="lazy">
-        </div>
-        <div>
+      <section id="academic" style="margin-top:10px">
+        <div style="background:var(--glass);padding:12px;border-radius:12px;border:1px solid var(--border);backdrop-filter:blur(8px)">
           <h2>Academic Journey</h2>
-          <p>As of July 2025 Naledi is completing her B.Sc. in Analytical Chemistry at Tshwane University of Technology. Strong in wet chemistry, titrimetry, spectroscopy and basic chromatographic techniques.</p>
-          <ul style="color:var(--muted);margin-top:8px">
-            <li><strong>Focus:</strong> Quantitative analysis & method validation</li>
-            <li><strong>Tools:</strong> UV-Vis, AAS, HPLC basics</li>
-            <li><strong>Open for:</strong> consulting and collaborative student projects by appointment</li>
-          </ul>
+          <p>Completing a B.Sc. in Analytical Chemistry. Strengths include quantitative method development, spectroscopy and lab data integrity.</p>
+          <div style="margin-top:8px" class="info-card">
+            <h3>Highlights</h3>
+            <ul style="color:var(--muted);margin-left:16px">
+              <li>Quantitative analysis</li>
+              <li>Method validation</li>
+              <li>Basic HPLC and UV-Vis experience</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- image/frame that will fallback to text card on error -->
+        <div style="margin-top:10px">
+          <figure class="image-frame" id="labPhoto">
+            <img src="hazel2.jpg" alt="Naledi in lab" loading="lazy">
+            <figcaption class="fallback" style="display:none;padding:10px">
+              <div class="info-card">
+                <h3>Lab Experience</h3>
+                <p>Experienced in wet chemistry techniques and basic instrumentation. Available for junior lab support and collaboration.</p>
+              </div>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section id="passions" class="card reveal">
-        <div>
-          <h2>Personality & Passions</h2>
-          <p>Naledi keeps a daily journal. She loves quiet routines and plants. She also curates playlists for study sessions and enjoys simple portrait photography.</p>
-          <blockquote style="color:var(--muted);border-left:3px solid rgba(255,255,255,0.06);padding-left:12px;margin-top:12px">"The winds of change do not shake the rooted tree."</blockquote>
+      <section id="passions" style="margin-top:10px">
+        <div style="background:var(--glass);padding:12px;border-radius:12px;border:1px solid var(--border);backdrop-filter:blur(8px)">
+          <h2>Interests</h2>
+          <p>Journaling · Orchids & peonies · Curating playlists · Photography</p>
+          <div style="margin-top:8px" class="info-card">
+            <h3>Personality</h3>
+            <p class="muted">Calm and reflective. Prefers thoughtful routines and clear communication. Values integrity and careful data handling.</p>
+          </div>
         </div>
-        <div class="frame">
-          <img src="Naledi-hazel.jpg" alt="Reflective portrait" loading="lazy">
+
+        <div class="gallery" style="margin-top:10px">
+          <figure class="thumb"><img src="hazel1.jpg" alt="Serene scene"><figcaption class="fallback" style="display:none"><div class="info-card"><h3>Roots</h3><p>Grew up in Groblersdal. Community-minded and observant.</p></div></figcaption></figure>
+          <figure class="thumb"><img src="Naledi-hazel.jpg" alt="Reflective portrait"><figcaption class="fallback" style="display:none"><div class="info-card"><h3>Portrait</h3><p>Simple portrait photography. Prefers natural light.</p></div></figcaption></figure>
         </div>
       </section>
 
-      <section id="moments" class="reveal">
-        <h2 style="font-family:'Playfair Display',serif;color:#fff;margin-bottom:10px">Moments & Gallery</h2>
-        <div class="mini">
-          <figure class="item"><img src="hazel1.jpg" alt="Serene moments" loading="lazy"><figcaption style="color:var(--muted);font-size:0.95rem">Serene moments</figcaption></figure>
-          <figure class="item"><img src="hazel2.jpg" alt="Focused study" loading="lazy"><figcaption style="color:var(--muted);font-size:0.95rem">Focused study</figcaption></figure>
-          <figure class="item"><img src="Naledi.jpg" alt="Graceful calm" loading="lazy"><figcaption style="color:var(--muted);font-size:0.95rem">Graceful calm</figcaption></figure>
-          <figure class="item"><img src="Naledi-hazel.jpg" alt="Orchids & peonies" loading="lazy"><figcaption style="color:var(--muted);font-size:0.95rem">Orchids & peonies</figcaption></figure>
+      <footer id="contact" style="margin-top:12px">
+        <div style="background:var(--glass);padding:12px;border-radius:12px;border:1px solid var(--border);backdrop-filter:blur(8px)">
+          <h2>Contact</h2>
+          <p style="color:var(--muted)">Email: <strong>replace.me@example.com</strong></p>
+          <p style="color:var(--muted);margin-top:6px">Instagram: <strong>@bratzara_nanieyella</strong></p>
         </div>
-      </section>
+      </footer>
     </main>
-
-    <footer id="contact" class="reveal">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:12px">
-        <div style="font-weight:700;color:#fff">Get in touch</div>
-        <div style="color:var(--muted)">Email: <em>replace.me@example.com</em> · Instagram: <em>@bratzara_nanieyella</em></div>
-        <div style="margin-top:8px;color:var(--muted)">Replace placeholders and image files with your originals. PDF and contact links are included.</div>
-      </div>
-    </footer>
 
   </div>
 
   <script>
-    // reveal + robust image fallbacks to prevent "missing" items on mobile
-    document.addEventListener('DOMContentLoaded', function () {
-      var reveals = document.querySelectorAll('.reveal');
-      var options = { threshold: 0.12, rootMargin: '0px 0px -80px 0px' };
+    // Mobile-first menu toggle
+    (function(){
+      var btn = document.getElementById('menuToggle');
+      var overlay = document.getElementById('menuOverlay');
+      btn.addEventListener('click', function(){
+        var open = overlay.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        overlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+      });
 
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries, observer) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, options);
-        reveals.forEach(function (el) { io.observe(el); });
-      } else {
-        reveals.forEach(function (el) { el.classList.add('revealed'); });
-      }
-
-      // image error fallback: replace with a small SVG placeholder that shows alt text
-      function placeholderDataURI(text){
-        var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'>" +
-                  "<rect width='100%' height='100%' fill='#fff1f6'/>" +
-                  "<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Arial' font-size='20' fill='#cc3e72'>" + text + "</text></svg>";
-        return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-      }
-
-      var imgs = document.querySelectorAll('img');
-      imgs.forEach(function(img){
-        // if image fails to load, show placeholder
-        img.addEventListener('error', function(){
-          var alt = img.getAttribute('alt') || 'Image unavailable';
-          try{ img.src = placeholderDataURI(alt); img.style.objectFit = 'contain'; }
-          catch(e){ img.style.display='none'; var fig = img.closest('figure'); if(fig){ fig.classList.add('missing'); fig.innerHTML = '<span>' + alt + '</span>'; } }
-        });
-
-        // some browsers mark images as complete before naturalWidth is available
-        if(img.complete && img.naturalWidth === 0){
-          var evt = new Event('error'); img.dispatchEvent(evt);
+      // Close overlay when link is clicked (mobile)
+      overlay.addEventListener('click', function(e){
+        if(e.target.tagName.toLowerCase() === 'a'){
+          overlay.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+          overlay.setAttribute('aria-hidden','true');
         }
       });
-    });
+    })();
+
+    // Image fallback: replace broken images with informative cards
+    (function(){
+      function replaceWithInfo(img){
+        var fig = img.closest('figure');
+        var fallback = fig.querySelector('.fallback');
+        if(fallback){
+          // show fallback and hide image
+          img.style.display = 'none';
+          fallback.style.display = 'block';
+        } else {
+          // create a small info-card using alt text
+          var card = document.createElement('div');
+          card.className = 'info-card';
+          var h = document.createElement('h3');
+          h.textContent = img.alt || 'Image unavailable';
+          var p = document.createElement('p');
+          p.textContent = 'Image missing. Replace with an original photo or update the src. In the meantime this section contains descriptive information.';
+          card.appendChild(h); card.appendChild(p);
+          fig.innerHTML = '';
+          fig.appendChild(card);
+        }
+      }
+
+      var images = document.querySelectorAll('img');
+      images.forEach(function(img){
+        img.addEventListener('error', function(){ replaceWithInfo(img); });
+        // handle zero-dimension cached failures
+        if(img.complete && img.naturalWidth === 0){ replaceWithInfo(img); }
+      });
+    })();
+
+    // Ensure images fit in portrait: for very narrow viewports switch images to contain
+    (function(){
+      function adjustContain(){
+        if(window.innerWidth <= 420){
+          document.querySelectorAll('.image-frame img, .gallery img').forEach(function(i){ i.style.objectFit = 'contain'; i.style.height = 'auto'; });
+        } else {
+          document.querySelectorAll('.image-frame img, .gallery img').forEach(function(i){ i.style.objectFit = ''; i.style.height = ''; });
+        }
+      }
+      window.addEventListener('resize', adjustContain);
+      adjustContain();
+    })();
   </script>
 </body>
 </html>
