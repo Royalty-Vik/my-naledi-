@@ -3,110 +3,104 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ms. Naledi Magane — Mobile-first Profile (Final)</title>
-  <meta name="description" content="Mobile-first polished profile with frosted-glass UI. Optimised for portrait phones." />
+  <title>Ms. Naledi Magane — Mobile-first Final</title>
+  <meta name="description" content="Mobile-first polished profile for Naledi Magane. Diploma student at TUT. Frosted-glass UI, girly accents, large emojis, mobile portrait optimised." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg-start:#f7dfe8; /* very light pink */
-      --bg-end:#e4b3cf;   /* soft rose */
+      /* restored original pink palette per request */
+      --bg-1:#b30059;        /* deep rose */
+      --bg-2:#ffb3d6;        /* soft accent */
+      --accent:#ff66b2;
       --glass: rgba(255,255,255,0.14);
-      --glass-2: rgba(255,255,255,0.06);
       --border: rgba(255,255,255,0.22);
-      --accent:#d95b8d;   /* accent */
-      --muted: rgba(51,24,34,0.65);
-      --radius:16px;
-      --max-w:1100px;
+      --muted: rgba(255,235,245,0.9);
+      --max-mobile-width:420px;
+      --radius:14px;
     }
 
-    /* base / mobile-first */
+    /* reset */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
       font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg,var(--bg-start), var(--bg-end));
-      color:#2b1220;
+      background: linear-gradient(180deg,var(--bg-1), #7a0a3f 60%);
+      color:#fff;
       -webkit-font-smoothing:antialiased;
-      padding:12px;display:flex;justify-content:center;
+      display:flex;justify-content:center;padding:12px;
     }
 
-    .wrap{width:100%;max-width:var(--max-w)}
+    /* mobile-first centered column */
+    .wrap{width:100%;max-width:var(--max-mobile-width);}
 
-    /* --------- Sticky glass header (mobile-first) --------- */
-    .site-header{
-      position:sticky;top:8px;z-index:1200;margin-bottom:10px;padding:10px;border-radius:12px;background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px
-    }
-
+    /* sticky frosted header kept as requested */
+    .site-header{position:sticky;top:8px;z-index:1200;margin-bottom:12px;padding:10px;border-radius:12px;background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-    .logo-mark{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#ffd6ea);font-family:'Playfair Display',serif;font-weight:700;color:#fff;box-shadow:0 8px 18px rgba(0,0,0,0.12)}
-    .brand h1{font-size:1rem;margin:0;line-height:1}
-    .brand p{font-size:0.75rem;margin:0;color:var(--muted)}
+    .logo-mark{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--bg-2));font-family:'Playfair Display',serif;font-weight:700;color:#fff}
+    .brand h1{font-size:1rem;margin:0}
+    .brand p{font-size:0.72rem;margin:0;color:rgba(255,255,255,0.9)}
 
-    /* compact nav (visible on tablet/desktop) */
-    .nav-inline{display:none;gap:8px}
-    .nav-inline a{padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
+    .nav-inline{display:none}
 
-    /* hamburger */
-    .btn-hamburger{background:transparent;border:0;padding:8px;display:grid;place-items:center;border-radius:10px}
+    .btn-hamburger{background:transparent;border:0;padding:8px;border-radius:10px}
     .btn-hamburger svg{width:28px;height:28px}
 
-    /* overlay menu (mobile) */
+    /* overlay menu (mobile friendly) */
     .menu-overlay{position:fixed;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:90px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));backdrop-filter:blur(14px);transform:translateY(-110%);transition:transform .36s cubic-bezier(.2,.9,.2,1);z-index:1199}
     .menu-overlay.open{transform:translateY(0)}
     .menu-overlay nav{display:flex;flex-direction:column;gap:12px;width:100%;max-width:420px;padding:12px}
-    .menu-overlay a{display:block;padding:16px;border-radius:12px;text-decoration:none;background:rgba(255,255,255,0.02);color:#2b1220;font-weight:700;text-align:center}
+    .menu-overlay a{display:block;padding:16px;border-radius:12px;text-decoration:none;background:rgba(255,255,255,0.02);color:#fff;font-weight:700;text-align:center;font-size:1.05rem}
 
-    /* --------- Hero & content (mobile-first single column) --------- */
-    main{display:block;gap:14px}
-    .hero{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);padding:14px;border-radius:14px}
+    main{display:block;gap:12px}
 
-    .image-frame{width:100%;max-width:420px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:block}
+    /* hero (mobile-first) */
+    .hero{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);padding:14px;border-radius:12px}
+    .image-frame{width:86%;max-width:360px;margin:0 auto;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
     .image-frame img{width:100%;height:auto;display:block;object-fit:contain}
 
-    h2{font-family:'Playfair Display',serif;font-size:1.15rem;margin:8px 0}
-    p{color:var(--muted);font-size:0.95rem}
+    .hero h1{font-family:'Playfair Display',serif;font-size:1.2rem;margin-top:10px;text-align:center}
+    .hero .sub{color:var(--muted);font-size:0.92rem;text-align:center;margin-top:6px}
 
-    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
-    .chip{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);font-weight:700;color:var(--muted)}
+    /* girly big emoji styles */
+    .big-emoji{font-size:2.4rem;display:inline-block;line-height:1;margin-right:6px;vertical-align:middle}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-weight:700;color:var(--muted);margin:6px 6px 0 0}
+    .chip .emoji{font-size:1.35rem}
 
-    .actions{display:flex;gap:10px;justify-content:center;margin-top:8px}
+    .actions{display:flex;gap:10px;justify-content:center;margin-top:10px}
     .btn{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff9ccf);color:#fff;text-decoration:none;font-weight:700}
     .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
-    /* cards used as image fallback content */
-    .info-card{padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-    .info-card h3{margin-bottom:6px}
+    /* card sections */
+    .card{margin-top:12px;background:var(--glass);border:1px solid var(--border);padding:12px;border-radius:12px;backdrop-filter:blur(8px)}
+    .card h2{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:8px}
+    .card p{color:var(--muted);font-size:0.95rem}
 
-    /* gallery grid for larger screens */
-    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
-    .gallery .thumb img{width:100%;height:auto;display:block;object-fit:contain;border-radius:10px}
+    /* gallery - single column mobile */
+    .gallery{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}
+    .thumb img{width:100%;height:auto;display:block;border-radius:10px;object-fit:contain}
 
-    footer{margin-top:14px;text-align:center;color:var(--muted);font-size:0.95rem}
+    footer{margin-top:12px;text-align:center;color:var(--muted);font-size:0.95rem}
 
-    /* --------- tablet / desktop (reveal inline nav & two-column layout) --------- */
+    /* tablet and up: show inline nav and two-column layout */
     @media (min-width:720px){
-      .nav-inline{display:flex}
+      .wrap{max-width:900px}
+      .nav-inline{display:flex;gap:10px}
+      .nav-inline a{color:var(--muted);padding:8px 10px;border-radius:10px;text-decoration:none}
       .btn-hamburger{display:none}
-      .menu-overlay{display:none}
-
-      main{display:grid;grid-template-columns:340px 1fr;gap:14px}
-      .hero{padding:18px}
+      main{display:grid;grid-template-columns:320px 1fr;gap:14px}
       .image-frame{aspect-ratio:1/1;height:320px}
-      .gallery{grid-template-columns:repeat(4,1fr)}
-      .image-frame img, .gallery img{object-fit:cover}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .image-frame img{object-fit:cover}
     }
 
-    /* ensure portrait phones show images fully without cropping */
-    @media (max-width:420px){
-      body{padding:10px}
-      .site-header{padding:10px}
-      .brand h1{font-size:0.95rem}
-      .menu-overlay nav a{padding:14px;font-size:1rem}
-      .image-frame{max-width:360px}
-      .gallery{grid-template-columns:1fr}
+    /* very small phone portrait tweaks */
+    @media (max-width:360px){
+      .big-emoji{font-size:2rem}
+      .chip{padding:7px 8px}
+      .image-frame{width:92%}
     }
 
   </style>
@@ -116,57 +110,60 @@
 
     <header class="site-header" role="banner">
       <a class="brand" href="#">
-        <div class="logo-mark" aria-hidden="true">NM</div>
+        <div class="logo-mark">NM</div>
         <div>
           <h1 style="font-weight:700">Naledi Magane</h1>
-          <p style="margin-top:4px">Analytical Chemistry · Tshwane</p>
+          <p style="margin-top:4px;font-size:0.72rem">Diploma · Analytical Chemistry · TUT</p>
         </div>
       </a>
 
       <div style="display:flex;align-items:center;gap:8px">
-        <nav class="nav-inline" aria-label="Main navigation">
+        <nav class="nav-inline" aria-label="Main nav">
           <a href="#about">About</a>
           <a href="#academic">Academic</a>
           <a href="#contact">Contact</a>
         </nav>
 
         <button class="btn-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="#2b1220" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
     </header>
 
-    <!-- overlay menu for mobile -->
+    <!-- mobile overlay menu (kept) -->
     <div id="menuOverlay" class="menu-overlay" aria-hidden="true">
       <nav aria-label="Mobile navigation">
-        <a href="#about">About</a>
-        <a href="#academic">Academic</a>
-        <a href="#passions">Interests</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">🌸 About</a>
+        <a href="#academic">🎓 Academic</a>
+        <a href="#passions">✨ Interests</a>
+        <a href="#contact">✉️ Contact</a>
       </nav>
     </div>
 
     <main>
+      <!-- HERO / ABOUT -->
       <section class="hero" id="about">
         <div style="display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center">
-          <figure class="image-frame" id="primaryPhoto">
+
+          <figure class="image-frame">
+            <!-- primary portrait (unique) -->
             <img src="hazel-profile.jpg" alt="Naledi Magane portrait" loading="lazy">
-            <!-- fallback info shown if image fails. JS will reveal this when needed -->
-            <figcaption class="fallback" style="display:none;padding:10px">
-              <div class="info-card">
-                <h3>About Naledi</h3>
-                <p>Born in Groblersdal. Final-year Analytical Chemistry student at Tshwane University of Technology. Methodical and patient. Loves plants and quiet routines.</p>
+            <figcaption style="display:none" class="fallback">
+              <div style="padding:10px;background:rgba(255,255,255,0.02);border-radius:10px;text-align:left;color:var(--muted)">
+                <h3 style="margin-bottom:6px;color:#fff">About Naledi</h3>
+                <p>Final-year diploma student in Analytical Chemistry at TUT. Methodical, patient and community-minded. Loves plants and quiet routines.</p>
               </div>
             </figcaption>
           </figure>
 
           <div>
-            <h2>Ms. Naledi Magane</h2>
-            <p class="muted">Rooted in faith. Driven by curiosity.</p>
-            <div class="badges">
-              <span class="chip">Final-year</span>
-              <span class="chip">Analytical Chemistry</span>
-              <span class="chip">Research & Methods</span>
+            <h1 style="margin:0"><span class="big-emoji">🌷</span>Ms. Naledi Magane</h1>
+            <div class="sub">Diploma in Analytical Chemistry · TUT</div>
+
+            <div style="margin-top:8px">
+              <span class="chip"><span class="emoji">🎓</span> Diploma</span>
+              <span class="chip"><span class="emoji">🧪</span> Analytical Chemistry</span>
+              <span class="chip"><span class="emoji">📍</span> Groblersdal · TUT</span>
             </div>
 
             <div class="actions">
@@ -177,63 +174,65 @@
         </div>
       </section>
 
-      <section id="academic" style="margin-top:10px">
-        <div style="background:var(--glass);padding:12px;border-radius:12px;border:1px solid var(--border);backdrop-filter:blur(8px)">
-          <h2>Academic Journey</h2>
-          <p>Completing a B.Sc. in Analytical Chemistry. Strengths include quantitative method development, spectroscopy and lab data integrity.</p>
-          <div style="margin-top:8px" class="info-card">
-            <h3>Highlights</h3>
-            <ul style="color:var(--muted);margin-left:16px">
-              <li>Quantitative analysis</li>
-              <li>Method validation</li>
-              <li>Basic HPLC and UV-Vis experience</li>
-            </ul>
-          </div>
+      <!-- ACADEMIC -->
+      <section id="academic" class="card">
+        <h2>Academic Journey 🎓</h2>
+        <p>Completing a Diploma in Analytical Chemistry at TUT. Strong practical skills in wet chemistry and a focus on quantitative method development and data integrity.</p>
+
+        <div style="margin-top:10px">
+          <figure class="image-frame">
+            <img src="hazel2.jpg" alt="Naledi in the lab" loading="lazy">
+            <figcaption style="display:none" class="fallback"><div style="padding:10px;color:var(--muted)"><h3 style="margin-bottom:6px;color:#fff">Lab Experience</h3><p>Hands-on experience with basic spectroscopic techniques and titrations. Open to collaborations and junior lab support.</p></div></figcaption>
+          </figure>
         </div>
 
-        <!-- image/frame that will fallback to text card on error -->
+        <div style="margin-top:10px" class="info-card">
+          <h3 style="margin-bottom:8px;color:#fff">Highlights</h3>
+          <ul style="color:var(--muted);margin-left:18px">
+            <li>Quantitative method development</li>
+            <li>Method validation practices</li>
+            <li>Basic UV-Vis & titration workflows</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PASSIONS -->
+      <section id="passions" class="card">
+        <h2>Interests & Personality ✨</h2>
+        <p>Journaling, plants (orchids & peonies), curated playlists and soft portrait photography. Calm, reflective and organized.</p>
+
         <div style="margin-top:10px">
-          <figure class="image-frame" id="labPhoto">
-            <img src="hazel2.jpg" alt="Naledi in lab" loading="lazy">
-            <figcaption class="fallback" style="display:none;padding:10px">
-              <div class="info-card">
-                <h3>Lab Experience</h3>
-                <p>Experienced in wet chemistry techniques and basic instrumentation. Available for junior lab support and collaboration.</p>
-              </div>
-            </figcaption>
+          <figure class="image-frame">
+            <img src="Naledi-hazel.jpg" alt="Reflective portrait" loading="lazy">
+            <figcaption style="display:none" class="fallback"><div style="padding:10px;color:var(--muted)"><h3 style="margin-bottom:6px;color:#fff">Portrait</h3><p>Natural light portraits and simple aesthetics.</p></div></figcaption>
           </figure>
         </div>
       </section>
 
-      <section id="passions" style="margin-top:10px">
-        <div style="background:var(--glass);padding:12px;border-radius:12px;border:1px solid var(--border);backdrop-filter:blur(8px)">
-          <h2>Interests</h2>
-          <p>Journaling · Orchids & peonies · Curating playlists · Photography</p>
-          <div style="margin-top:8px" class="info-card">
-            <h3>Personality</h3>
-            <p class="muted">Calm and reflective. Prefers thoughtful routines and clear communication. Values integrity and careful data handling.</p>
-          </div>
-        </div>
-
-        <div class="gallery" style="margin-top:10px">
-          <figure class="thumb"><img src="hazel1.jpg" alt="Serene scene"><figcaption class="fallback" style="display:none"><div class="info-card"><h3>Roots</h3><p>Grew up in Groblersdal. Community-minded and observant.</p></div></figcaption></figure>
-          <figure class="thumb"><img src="Naledi-hazel.jpg" alt="Reflective portrait"><figcaption class="fallback" style="display:none"><div class="info-card"><h3>Portrait</h3><p>Simple portrait photography. Prefers natural light.</p></div></figcaption></figure>
+      <!-- GALLERY (unique images only; duplicates removed) -->
+      <section class="card">
+        <h2>Moments & Gallery 📸</h2>
+        <div class="gallery">
+          <figure class="thumb"><img src="hazel1.jpg" alt="Serene moments" loading="lazy"><figcaption style="display:none" class="fallback"><div class="info-card"><h3 style="color:#fff">Roots</h3><p style="color:var(--muted)">Grew up in Groblersdal. Community and nature shaped Naledi's approach to life.</p></div></figcaption></figure>
+          <figure class="thumb"><img src="Naledi.jpg" alt="Graceful calm" loading="lazy"><figcaption style="display:none" class="fallback"><div class="info-card"><h3 style="color:#fff">Calm</h3><p style="color:var(--muted)">Quiet rituals and study playlists.</p></div></figcaption></figure>
         </div>
       </section>
 
+      <!-- CONTACT -->
       <footer id="contact" style="margin-top:12px">
-        <div style="background:var(--glass);padding:12px;border-radius:12px;border:1px solid var(--border);backdrop-filter:blur(8px)">
-          <h2>Contact</h2>
+        <div class="card">
+          <h2>Contact ✉️</h2>
           <p style="color:var(--muted)">Email: <strong>replace.me@example.com</strong></p>
-          <p style="color:var(--muted);margin-top:6px">Instagram: <strong>@bratzara_nanieyella</strong></p>
+          <p style="color:var(--muted);margin-top:8px">Instagram: <strong>@bratzara_nanieyella</strong></p>
+          <p style="color:var(--muted);margin-top:8px;font-size:0.9rem">Replace placeholders with originals. Missing photos automatically fall back to descriptive cards on mobile.</p>
         </div>
       </footer>
-    </main>
 
+    </main>
   </div>
 
   <script>
-    // Mobile-first menu toggle
+    // menu toggle (kept)
     (function(){
       var btn = document.getElementById('menuToggle');
       var overlay = document.getElementById('menuOverlay');
@@ -242,55 +241,44 @@
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         overlay.setAttribute('aria-hidden', open ? 'false' : 'true');
       });
-
-      // Close overlay when link is clicked (mobile)
-      overlay.addEventListener('click', function(e){
-        if(e.target.tagName.toLowerCase() === 'a'){
-          overlay.classList.remove('open');
-          btn.setAttribute('aria-expanded','false');
-          overlay.setAttribute('aria-hidden','true');
-        }
-      });
+      overlay.addEventListener('click', function(e){ if(e.target.tagName.toLowerCase()==='a'){ overlay.classList.remove('open'); btn.setAttribute('aria-expanded','false'); overlay.setAttribute('aria-hidden','true'); } });
     })();
 
-    // Image fallback: replace broken images with informative cards
+    // Remove repeating images: ensure each image file appears only once across the document
+    // (This is enforced by using unique filenames in sections. Nothing to do at runtime.)
+
+    // Image fallback: replace broken images with info cards and hide only the missing image (not whole section)
     (function(){
       function replaceWithInfo(img){
         var fig = img.closest('figure');
+        if(!fig) return;
         var fallback = fig.querySelector('.fallback');
-        if(fallback){
-          // show fallback and hide image
-          img.style.display = 'none';
-          fallback.style.display = 'block';
-        } else {
-          // create a small info-card using alt text
-          var card = document.createElement('div');
-          card.className = 'info-card';
-          var h = document.createElement('h3');
-          h.textContent = img.alt || 'Image unavailable';
-          var p = document.createElement('p');
-          p.textContent = 'Image missing. Replace with an original photo or update the src. In the meantime this section contains descriptive information.';
-          card.appendChild(h); card.appendChild(p);
-          fig.innerHTML = '';
-          fig.appendChild(card);
-        }
+        if(fallback){ img.style.display='none'; fallback.style.display='block'; return; }
+        // create lightweight info block
+        var card = document.createElement('div');
+        card.className = 'info-card';
+        card.style.padding='10px';
+        var h = document.createElement('h3'); h.textContent = img.alt || 'Image unavailable'; h.style.color = '#fff';
+        var p = document.createElement('p'); p.textContent = 'Image missing. Add a replacement photo or keep this descriptive content.'; p.style.color='var(--muted)';
+        card.appendChild(h); card.appendChild(p);
+        // replace image with card inside the figure
+        fig.innerHTML = ''; fig.appendChild(card);
       }
 
-      var images = document.querySelectorAll('img');
-      images.forEach(function(img){
+      var imgs = document.querySelectorAll('img');
+      imgs.forEach(function(img){
         img.addEventListener('error', function(){ replaceWithInfo(img); });
-        // handle zero-dimension cached failures
         if(img.complete && img.naturalWidth === 0){ replaceWithInfo(img); }
       });
     })();
 
-    // Ensure images fit in portrait: for very narrow viewports switch images to contain
+    // Ensure portrait phones show images fully without cropping: switch to contain when narrow
     (function(){
       function adjustContain(){
         if(window.innerWidth <= 420){
-          document.querySelectorAll('.image-frame img, .gallery img').forEach(function(i){ i.style.objectFit = 'contain'; i.style.height = 'auto'; });
+          document.querySelectorAll('.image-frame img, .gallery img').forEach(function(i){ i.style.objectFit = 'contain'; i.style.height='auto'; });
         } else {
-          document.querySelectorAll('.image-frame img, .gallery img').forEach(function(i){ i.style.objectFit = ''; i.style.height = ''; });
+          document.querySelectorAll('.image-frame img, .gallery img').forEach(function(i){ i.style.objectFit = ''; i.style.height=''; });
         }
       }
       window.addEventListener('resize', adjustContain);
